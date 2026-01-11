@@ -1,87 +1,18 @@
 // AWS Cloud Referee - Landing Page JavaScript
 
-// AWS Services with Official Icon URLs
-// Using official AWS Architecture Icons
+// AWS Services - Using text labels instead of external icons for faster loading
 const awsServices = [
-    { 
-        name: 'Lambda', 
-        iconUrl: 'https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png',
-        // Using placeholder - will be replaced with actual AWS icon URLs
-        color: '#FF9900'
-    },
-    { 
-        name: 'EC2', 
-        iconUrl: 'https://icon.icepanel.io/AWS/svg/Compute/EC2.svg',
-        color: '#FF9900'
-    },
-    { 
-        name: 'S3', 
-        iconUrl: 'https://icon.icepanel.io/AWS/svg/Storage/Simple-Storage-Service.svg',
-        color: '#569A31'
-    },
-    { 
-        name: 'DynamoDB', 
-        iconUrl: 'https://icon.icepanel.io/AWS/svg/Database/DynamoDB.svg',
-        color: '#4053D6'
-    },
-    { 
-        name: 'RDS', 
-        iconUrl: 'https://icon.icepanel.io/AWS/svg/Database/RDS.svg',
-        color: '#527FFF'
-    },
-    { 
-        name: 'API Gateway', 
-        iconUrl: 'https://icon.icepanel.io/AWS/svg/App-Integration/API-Gateway.svg',
-        color: '#FF4F8B'
-    },
-    { 
-        name: 'CloudFront', 
-        iconUrl: 'https://icon.icepanel.io/AWS/svg/Networking-Content-Delivery/CloudFront.svg',
-        color: '#8C4FFF'
-    },
-    { 
-        name: 'ECS', 
-        iconUrl: 'https://icon.icepanel.io/AWS/svg/Containers/Elastic-Container-Service.svg',
-        color: '#FF9900'
-    },
-    { 
-        name: 'VPC', 
-        iconUrl: 'https://icon.icepanel.io/AWS/svg/Networking-Content-Delivery/Virtual-Private-Cloud.svg',
-        color: '#8C4FFF'
-    },
-    { 
-        name: 'CloudWatch', 
-        iconUrl: 'https://icon.icepanel.io/AWS/svg/Management-Governance/CloudWatch.svg',
-        color: '#FF4F8B'
-    },
-    { 
-        name: 'IAM', 
-        iconUrl: 'https://icon.icepanel.io/AWS/svg/Security-Identity-Compliance/Identity-and-Access-Management.svg',
-        color: '#DD344C'
-    },
-    { 
-        name: 'Route 53', 
-        iconUrl: 'https://icon.icepanel.io/AWS/svg/Networking-Content-Delivery/Route-53.svg',
-        color: '#8C4FFF'
-    },
-    { 
-        name: 'ELB', 
-        iconUrl: 'https://icon.icepanel.io/AWS/svg/Networking-Content-Delivery/Elastic-Load-Balancing.svg',
-        color: '#8C4FFF'
-    },
-    { 
-        name: 'SNS', 
-        iconUrl: 'https://icon.icepanel.io/AWS/svg/App-Integration/Simple-Notification-Service.svg',
-        color: '#FF4F8B'
-    },
-    { 
-        name: 'SQS', 
-        iconUrl: 'https://icon.icepanel.io/AWS/svg/App-Integration/Simple-Queue-Service.svg',
-        color: '#FF4F8B'
-    },
+    { name: 'λ', fullName: 'Lambda', color: '#FF9900' },
+    { name: 'EC2', fullName: 'EC2', color: '#FF9900' },
+    { name: 'S3', fullName: 'S3', color: '#569A31' },
+    { name: 'DDB', fullName: 'DynamoDB', color: '#4053D6' },
+    { name: 'RDS', fullName: 'RDS', color: '#527FFF' },
+    { name: 'API', fullName: 'API Gateway', color: '#FF4F8B' },
+    { name: 'CF', fullName: 'CloudFront', color: '#8C4FFF' },
+    { name: 'ECS', fullName: 'ECS', color: '#FF9900' },
 ];
 
-// Create falling ice cubes
+// Create falling ice cubes with text labels (no external images)
 function createIceCube() {
     const container = document.getElementById('iceCubesContainer');
     if (!container) return;
@@ -91,22 +22,14 @@ function createIceCube() {
     
     const service = awsServices[Math.floor(Math.random() * awsServices.length)];
     
-    const iconImg = document.createElement('img');
-    iconImg.className = 'ice-cube-icon';
-    iconImg.src = service.iconUrl;
-    iconImg.alt = service.name;
-    iconImg.loading = 'lazy';
+    // Use text label instead of external image
+    const label = document.createElement('div');
+    label.className = 'ice-cube-label';
+    label.textContent = service.name;
+    label.style.color = service.color;
+    label.title = service.fullName;
     
-    iconImg.onerror = function() {
-        this.style.display = 'none';
-        const fallbackText = document.createElement('div');
-        fallbackText.className = 'ice-cube-fallback';
-        fallbackText.textContent = service.name;
-        fallbackText.style.color = service.color;
-        iceCube.appendChild(fallbackText);
-    };
-    
-    iceCube.appendChild(iconImg);
+    iceCube.appendChild(label);
     
     // Random horizontal position
     const leftPosition = Math.random() * 100;
@@ -133,19 +56,19 @@ function createIceCube() {
     }, (duration + delay) * 1000);
 }
 
-// Initialize ice cubes
+// Initialize ice cubes - reduced initial count for faster load
 function initIceCubes() {
-    // Create initial batch of ice cubes
-    for (let i = 0; i < 8; i++) {
+    // Create smaller initial batch of ice cubes
+    for (let i = 0; i < 4; i++) {
         setTimeout(() => {
             createIceCube();
-        }, i * 1000);
+        }, i * 500);
     }
     
     // Continuously create new ice cubes
     setInterval(() => {
         createIceCube();
-    }, 2000); // New ice cube every 2 seconds
+    }, 3000); // New ice cube every 3 seconds (reduced frequency)
 }
 
 // Smooth scroll to architectures section

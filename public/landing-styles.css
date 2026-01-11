@@ -164,6 +164,18 @@ body {
     animation: icon-float 2s ease-in-out infinite;
 }
 
+.ice-cube-label {
+    position: relative;
+    z-index: 1;
+    font-weight: 900;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0.5rem;
+    animation: icon-float 2s ease-in-out infinite;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
+}
+
 .ice-cube-fallback {
     position: relative;
     z-index: 1;
