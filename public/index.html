@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfraJudge - AI Architecture Advisor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Gradient Orbs -->
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+
+    <!-- Falling Ice Cubes with AWS Service Icons -->
+    <div class="ice-cubes-container" id="iceCubesContainer"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-content">
+                <a href="landing.html" class="nav-logo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                        <circle cx="50" cy="50" r="45" class="logo-circle"/>
+                        <path d="M30 50 L50 30 L70 50 L50 70 Z" class="logo-diamond"/>
+                    </svg>
+                    <span>InfraJudge</span>
+                </a>
+                <div class="nav-links">
+                    <a href="landing.html">Home</a>
+                    <a href="index.html" class="active">Get Recommendation</a>
+                    <a href="compare.html">Compare Services</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header class="header fade-in">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" class="logo-circle"/>
+                        <path d="M30 50 L50 30 L70 50 L50 70 Z" class="logo-diamond"/>
+                    </svg>
+                </div>
+                <h1 class="logo-text">InfraJudge</h1>
+            </div>
+            <p class="tagline">AI-Powered Architecture Recommendations</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Form -->
+            <div class="form-container slide-up" id="formContainer">
+                <div class="form-header">
+                    <h2>Tell Us About Your Project</h2>
+                    <p>Answer a few questions to get your personalized AWS architecture</p>
+                </div>
+
+                <form id="architectureForm" class="architecture-form">
+                    <div class="form-grid">
+                        <!-- App Type -->
+                        <div class="form-group">
+                            <label for="appType">
+                                <span class="label-icon">🚀</span>
+                                Application Type
+                            </label>
+                            <select id="appType" name="appType" required>
+                                <option value="">Select type...</option>
+                                <option value="Startup">Startup</option>
+                                <option value="SaaS">SaaS</option>
+                                <option value="Enterprise">Enterprise</option>
+                                <option value="ML">Machine Learning</option>
+                                <option value="FinTech">FinTech</option>
+                                <option value="E-commerce">E-commerce</option>
+                                <option value="Gaming">Gaming</option>
+                            </select>
+                        </div>
+
+                        <!-- Budget -->
+                        <div class="form-group">
+                            <label for="budget">
+                                <span class="label-icon">💰</span>
+                                Budget Level
+                            </label>
+                            <div class="button-group">
+                                <input type="radio" id="budgetLow" name="budget" value="Low" required>
+                                <label for="budgetLow" class="button-option">Low</label>
+                                
+                                <input type="radio" id="budgetMedium" name="budget" value="Medium">
+                                <label for="budgetMedium" class="button-option">Medium</label>
+                                
+                                <input type="radio" id="budgetHigh" name="budget" value="High">
+                                <label for="budgetHigh" class="button-option">High</label>
+                            </div>
+                        </div>
+
+                        <!-- Expected Users -->
+                        <div class="form-group">
+                            <label for="expectedUsers">
+                                <span class="label-icon">👥</span>
+                                Expected Users
+                            </label>
+                            <input type="text" id="expectedUsers" name="expectedUsers" placeholder="e.g., 10000" required>
+                        </div>
+
+                        <!-- Traffic -->
+                        <div class="form-group">
+                            <label for="traffic">
+                                <span class="label-icon">📊</span>
+                                Traffic Level
+                            </label>
+                            <div class="button-group">
+                                <input type="radio" id="trafficLow" name="traffic" value="Low" required>
+                                <label for="trafficLow" class="button-option">Low</label>
+                                
+                                <input type="radio" id="trafficMedium" name="traffic" value="Medium">
+                                <label for="trafficMedium" class="button-option">Medium</label>
+                                
+                                <input type="radio" id="trafficHigh" name="traffic" value="High">
+                                <label for="trafficHigh" class="button-option">High</label>
+                            </div>
+                        </div>
+
+                        <!-- Security Level -->
+                        <div class="form-group">
+                            <label for="securityLevel">
+                                <span class="label-icon">🔒</span>
+                                Security Requirements
+                            </label>
+                            <div class="button-group">
+                                <input type="radio" id="securityLow" name="securityLevel" value="Low" required>
+                                <label for="securityLow" class="button-option">Low</label>
+                                
+                                <input type="radio" id="securityMedium" name="securityLevel" value="Medium">
+                                <label for="securityMedium" class="button-option">Medium</label>
+                                
+                                <input type="radio" id="securityHigh" name="securityLevel" value="High">
+                                <label for="securityHigh" class="button-option">High</label>
+                            </div>
+                        </div>
+
+                        <!-- Workload Type -->
+                        <div class="form-group">
+                            <label for="workloadType">
+                                <span class="label-icon">⚙️</span>
+                                Workload Type
+                            </label>
+                            <select id="workloadType" name="workloadType" required>
+                                <option value="">Select workload...</option>
+                                <option value="API-based">API-based</option>
+                                <option value="Web App">Web Application</option>
+                                <option value="Mobile Backend">Mobile Backend</option>
+                                <option value="Data Processing">Data Processing</option>
+                                <option value="Machine Learning">Machine Learning</option>
+                                <option value="Real-time">Real-time Processing</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Project Description (Full Width) -->
+                    <div class="form-group" style="grid-column: 1 / -1;">
+                        <label for="projectDescription">
+                            <span class="label-icon">📝</span>
+                            Project Description
+                            <span style="color: var(--gray); font-weight: 400; font-size: 0.85rem;">(Optional - Helps us provide better recommendations)</span>
+                        </label>
+                        <textarea 
+                            id="projectDescription" 
+                            name="projectDescription" 
+                            rows="4" 
+                            placeholder="Describe your project in detail... What does it do? What are the key features? Any specific requirements or constraints? (e.g., 'Building a real-time chat application with video calls, needs to handle 10k concurrent users, requires HIPAA compliance...')"
+                            style="width: 100%; padding: 1rem; background: rgba(15, 23, 42, 0.6); border: 2px solid rgba(255, 255, 255, 0.1); border-radius: 12px; color: var(--white); font-size: 1rem; font-family: inherit; resize: vertical; line-height: 1.6;"
+                        ></textarea>
+                        <div style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--gray);">
+                            💡 Tip: The more details you provide, the more tailored your architecture recommendation will be!
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-button">
+                        <span class="button-text">Generate Architecture</span>
+                        <span class="button-icon">→</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading-container" id="loadingContainer" style="display: none;">
+                <div class="loading-spinner">
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                </div>
+                <h3 class="loading-text">Analyzing Your Requirements...</h3>
+                <p class="loading-subtext">Our AI is comparing AWS services and crafting your perfect architecture</p>
+            </div>
+
+            <!-- Results Container -->
+            <div class="results-container" id="resultsContainer" style="display: none;">
+                <div class="results-header">
+                    <h2>Your Recommended Architecture</h2>
+                    <button class="new-recommendation-btn" id="newRecommendation">
+                        <span>New Recommendation</span>
+                    </button>
+                </div>
+
+                <div class="results-content" id="resultsContent">
+                    <!-- Results will be dynamically inserted here -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by AI • Built with ❤️ for Cloud Architects</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

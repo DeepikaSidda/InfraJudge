@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Comparison - InfraJudge</title>
+    <link rel="stylesheet" href="compare-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Gradient Orbs -->
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+
+    <!-- Falling Ice Cubes with AWS Service Icons -->
+    <div class="ice-cubes-container" id="iceCubesContainer"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="landing.html" class="nav-logo">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                    <circle cx="50" cy="50" r="45" class="logo-circle"/>
+                    <path d="M30 50 L50 30 L70 50 L50 70 Z" class="logo-diamond"/>
+                </svg>
+                <span>InfraJudge</span>
+            </a>
+            <div class="nav-links">
+                <a href="landing.html">Home</a>
+                <a href="index.html">Get Recommendation</a>
+                <a href="compare.html" class="active">Compare Services</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="compare-container">
+        <!-- Header -->
+        <header class="compare-header">
+            <h1 class="page-title">
+                <span class="title-icon">⚖️</span>
+                <span class="gradient-text">Service Comparison</span>
+            </h1>
+            <p class="page-subtitle">
+                Compare AWS services side-by-side to make informed architecture decisions
+            </p>
+        </header>
+
+        <!-- Service Selection -->
+        <section class="selection-section" id="selectionSection">
+            <div class="selection-grid">
+                <!-- Service 1 Selection -->
+                <div class="selection-card">
+                    <h3>Select First Service</h3>
+                    <div class="category-selector">
+                        <label>Category</label>
+                        <select id="category1" class="category-select">
+                            <option value="">Choose a category...</option>
+                            <option value="compute">Compute</option>
+                            <option value="database">Database</option>
+                            <option value="storage">Storage</option>
+                            <option value="api">API & Load Balancing</option>
+                        </select>
+                    </div>
+                    <div class="service-selector" id="serviceSelector1">
+                        <label>Service</label>
+                        <div class="service-cards" id="serviceCards1">
+                            <p class="placeholder-text">Select a category first</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VS Badge -->
+                <div class="vs-badge">
+                    <span class="vs-text">VS</span>
+                </div>
+
+                <!-- Service 2 Selection -->
+                <div class="selection-card">
+                    <h3>Select Second Service</h3>
+                    <div class="category-selector">
+                        <label>Category</label>
+                        <select id="category2" class="category-select">
+                            <option value="">Choose a category...</option>
+                            <option value="compute">Compute</option>
+                            <option value="database">Database</option>
+                            <option value="storage">Storage</option>
+                            <option value="api">API & Load Balancing</option>
+                        </select>
+                    </div>
+                    <div class="service-selector" id="serviceSelector2">
+                        <label>Service</label>
+                        <div class="service-cards" id="serviceCards2">
+                            <p class="placeholder-text">Select a category first</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="compareBtn" class="compare-button" disabled>
+                <span class="button-text">Compare Services</span>
+                <span class="button-icon">→</span>
+            </button>
+        </section>
+
+        <!-- Comparison Results -->
+        <section class="results-section" id="resultsSection" style="display: none;">
+            <div class="results-header">
+                <h2>Comparison Results</h2>
+                <button id="resetBtn" class="reset-button">
+                    <span>↻</span> New Comparison
+                </button>
+            </div>
+
+            <div class="comparison-grid" id="comparisonGrid">
+                <!-- Results will be dynamically inserted here -->
+            </div>
+        </section>
+    </div>
+
+    <script src="compare.js"></script>
+</body>
+</html>
