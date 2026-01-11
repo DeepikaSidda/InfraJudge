@@ -63,20 +63,7 @@ serverless deploy
 - **Low Traffic**: ~$1-2/month
 - **Scales automatically**
 
-## 📚 Documentation
 
-- [Quick Start Guide](QUICK-START.md)
-- [Full Deployment Guide](DEPLOYMENT.md)
-- [Backend Deployment](deploy-backend.md)
 
-## 🤝 Contributing
-
-Contributions welcome!
-
-## 📄 License
-
-MIT
-
----
 
 **Built with ❤️ using Kiro AI**
