@@ -2,6 +2,23 @@
 
 An intelligent AWS service recommendation system that helps you choose the right AWS services for your application based on your specific requirements.
 
+## 💰 Prerequisites & Costs
+
+Before deploying, you'll need:
+
+### Required
+1. **AWS Account** with credentials configured
+2. **Serverless Framework Subscription** ($3.50/month)
+   - Subscribe at: https://aws.amazon.com/marketplace/pp/prodview-ebibeg6eyrats
+   - ⏱️ **Note:** Subscription takes 5-10 minutes to activate after purchase
+3. **Node.js** 18+ installed
+4. **AWS CLI** installed and configured
+
+### Monthly Costs
+- **Serverless Framework:** $3.50/month (required for deployment)
+- **AWS Resources:** ~$1-2/month (Lambda, S3, API Gateway - mostly free tier)
+- **Total:** ~$4.50-5.50/month
+
 ## 🚀 Quick Deploy (5 Minutes)
 
 ```bash
@@ -56,6 +73,23 @@ serverless deploy
 ```bash
 ./deploy-s3.sh
 ```
+
+### Changing AWS Region
+
+By default, the app deploys to `us-east-1`. To deploy to a different region:
+
+1. Update `serverless.yml`:
+```yaml
+provider:
+  region: us-west-2  # Change this line
+```
+
+2. Update `deploy-s3.sh`:
+```bash
+REGION="us-west-2"  # Change this line
+```
+
+3. Deploy as normal
 
 ## 💰 Cost
 
