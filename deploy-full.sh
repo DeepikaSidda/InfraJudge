@@ -51,7 +51,19 @@ echo -e "${GREEN}✓ Backend deployed successfully!${NC}"
 echo ""
 
 # Extract API Gateway URL
-API_URL=$(serverless info --verbose | grep "POST - " | awk '{print $3}' | sed 's|/recommend||')
+# Try multiple methods to get the API URL
+API_URL=$(serverless info --verbose 2>&1 | grep -E "ANY - https://" | head -1 | awk '{print $3}' | sed 's|/{proxy+}||')
+
+# If that didn't work, try getting it from the ServiceEndpoint output
+if [ -z "$API_URL" ]; then
+    API_URL=$(serverless info --verbose 2>&1 | grep "ServiceEndpoint:" | awk '{print $2}')
+fi
+
+# If still empty, try AWS CLI to get the API Gateway URL
+if [ -z "$API_URL" ]; then
+    STACK_NAME="infrajudge-api-prod"
+    API_URL=$(aws cloudformation describe-stacks --stack-name ${STACK_NAME} --query 'Stacks[0].Outputs[?OutputKey==`ServiceEndpoint`].OutputValue' --output text 2>/dev/null)
+fi
 
 if [ -z "$API_URL" ]; then
     echo -e "${YELLOW}⚠️  Could not automatically extract API URL${NC}"
@@ -83,7 +95,18 @@ echo -e "${BLUE}Step 3: Deploying Frontend to S3...${NC}"
 echo ""
 
 chmod +x deploy-s3.sh
-./deploy-s3.sh
+
+# Run deploy-s3.sh and capture the bucket name from its output
+DEPLOY_OUTPUT=$(./deploy-s3.sh 2>&1)
+echo "$DEPLOY_OUTPUT"
+
+# Extract bucket name from the output
+BUCKET_NAME=$(echo "$DEPLOY_OUTPUT" | grep "make_bucket:" | awk '{print $2}' | sed 's/s3:\/\///')
+
+# If we couldn't extract it, try to get it from the Website URL line
+if [ -z "$BUCKET_NAME" ]; then
+    BUCKET_NAME=$(echo "$DEPLOY_OUTPUT" | grep "Website URL:" | sed 's/.*http:\/\/\(.*\)\.s3-website.*/\1/')
+fi
 
 if [ $? -ne 0 ]; then
     echo -e "${RED}❌ Frontend deployment failed${NC}"
@@ -95,6 +118,10 @@ fi
 # Remove backup
 rm public/app.js.backup
 
+# Get region from serverless.yml
+REGION=$(grep "region:" serverless.yml | awk '{print $2}')
+FRONTEND_URL="http://${BUCKET_NAME}.s3-website-${REGION}.amazonaws.com"
+
 echo ""
 echo -e "${GREEN}========================================${NC}"
 echo -e "${GREEN}✅ DEPLOYMENT COMPLETE!${NC}"
@@ -102,7 +129,7 @@ echo -e "${GREEN}========================================${NC}"
 echo ""
 echo -e "${BLUE}📍 Your Live URLs:${NC}"
 echo ""
-echo -e "Frontend: ${GREEN}http://infrajudge-app.s3-website-us-east-1.amazonaws.com${NC}"
+echo -e "Frontend: ${GREEN}${FRONTEND_URL}${NC}"
 echo -e "Backend:  ${GREEN}${API_URL}${NC}"
 echo ""
 echo -e "${YELLOW}🎉 Your app is now live! Share the frontend URL with anyone.${NC}"

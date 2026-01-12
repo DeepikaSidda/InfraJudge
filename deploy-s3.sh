@@ -9,7 +9,9 @@ echo "🚀 InfraJudge S3 Deployment Script"
 echo "===================================="
 
 # Configuration
-BUCKET_NAME="infrajudge-app-tr"
+# Generate unique bucket name using timestamp to avoid conflicts
+TIMESTAMP=$(date +%s)
+BUCKET_NAME="infrajudge-app-${TIMESTAMP}"
 REGION="us-east-1"
 
 # Colors
