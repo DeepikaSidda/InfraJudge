@@ -9,7 +9,7 @@ echo "🚀 InfraJudge S3 Deployment Script"
 echo "===================================="
 
 # Configuration
-BUCKET_NAME="infrajudge-app"
+BUCKET_NAME="infrajudge-app-tr"
 REGION="us-east-1"
 
 # Colors
