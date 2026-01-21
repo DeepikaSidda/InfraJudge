@@ -76,15 +76,40 @@ export interface ArchitectureRecommendation {
 }
 
 /**
+ * Ratings for a service across multiple criteria
+ */
+export interface ServiceRatings {
+  costEfficiency: number;   // 1-5: how cost-effective
+  scalability: number;      // 1-5: how well it scales
+  easeOfUse: number;        // 1-5: how easy to set up and manage
+  performance: number;      // 1-5: speed and reliability
+  flexibility: number;      // 1-5: customization options
+}
+
+/**
+ * Service with ratings and recommendation flag
+ */
+export interface ServiceWithRatings {
+  service: string;
+  cost: string;
+  scalability: string;
+  bestFor: string;
+  ratings: ServiceRatings;
+  overallScore: number;     // Average of all ratings (1-5)
+  recommended: boolean;     // True if this is the recommended service for this layer
+  reasoning: string;        // Explanation of why this service is/isn't recommended
+}
+
+/**
  * Complete formatted output for the user
  */
 export interface FormattedOutput {
   userContextSummary: string;
   comparisonTables: {
-    compute: string;      // Markdown table
-    database: string;     // Markdown table
-    storage: string;      // Markdown table
-    apiLoadBalancing: string;  // Markdown table
+    compute: ServiceWithRatings[] | string;      // Array of services with ratings or Markdown table (backward compatible)
+    database: ServiceWithRatings[] | string;     // Array of services with ratings or Markdown table (backward compatible)
+    storage: ServiceWithRatings[] | string;      // Array of services with ratings or Markdown table (backward compatible)
+    apiLoadBalancing: ServiceWithRatings[] | string;  // Array of services with ratings or Markdown table (backward compatible)
   };
   decisionAnalysis: string;
   finalArchitecture: string;

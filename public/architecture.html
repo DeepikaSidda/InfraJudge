@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know Your Architecture - InfraJudge</title>
+    <link rel="stylesheet" href="architecture-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="background-animation">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Gradient Orbs -->
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+    <div class="gradient-orb orb-4"></div>
+
+    <!-- Falling Ice Cubes with AWS Service Icons -->
+    <div class="ice-cubes-container" id="iceCubesContainer"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <a href="landing.html" class="logo">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                    <circle cx="50" cy="50" r="45" class="logo-circle"/>
+                    <path d="M30 50 L50 30 L70 50 L50 70 Z" class="logo-diamond"/>
+                </svg>
+                <span>InfraJudge</span>
+            </a>
+            <nav class="nav">
+                <a href="landing.html">Home</a>
+                <a href="compare.html">Compare</a>
+                <a href="architecture.html" class="active">Know Your Architecture</a>
+            </nav>
+        </header>
+
+        <!-- Form Section -->
+        <section id="formSection" class="form-section">
+            <div class="form-header">
+                <h1>🏗️ Know Your Architecture</h1>
+                <p>Describe your project and get a complete AWS architecture recommendation powered by AI</p>
+            </div>
+
+            <form id="architectureForm" class="architecture-form">
+                <div class="form-group">
+                    <label for="projectIdea">
+                        <span class="label-icon">💡</span>
+                        Project or Startup Idea
+                    </label>
+                    <textarea 
+                        id="projectIdea" 
+                        name="projectIdea" 
+                        rows="4" 
+                        placeholder="Describe your project idea... (e.g., A social media platform for pet owners, An e-commerce site for handmade crafts, A real-time analytics dashboard for IoT devices)"
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="functionalRequirements">
+                        <span class="label-icon">⚙️</span>
+                        Functional Requirements
+                    </label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="functional" value="None">
+                            <span>None</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="functional" value="User Authentication">
+                            <span>User Authentication</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="functional" value="File Upload/Storage">
+                            <span>File Upload/Storage</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="functional" value="Real-time Notifications">
+                            <span>Real-time Notifications</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="functional" value="Payment Processing">
+                            <span>Payment Processing</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="functional" value="Search Functionality">
+                            <span>Search Functionality</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="functional" value="API Integration">
+                            <span>API Integration</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="functional" value="Data Analytics">
+                            <span>Data Analytics</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="functional" value="Email/SMS Notifications">
+                            <span>Email/SMS Notifications</span>
+                        </label>
+                    </div>
+                    <textarea 
+                        id="functionalRequirements" 
+                        name="functionalRequirementsCustom" 
+                        rows="2" 
+                        placeholder="Add any other functional requirements (optional)"
+                        style="margin-top: 1rem;"
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="nonFunctionalRequirements">
+                        <span class="label-icon">📊</span>
+                        Non-Functional Requirements
+                    </label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="nonFunctional" value="None">
+                            <span>None</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="nonFunctional" value="High Scalability">
+                            <span>High Scalability</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="nonFunctional" value="99.9% Uptime">
+                            <span>99.9% Uptime</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="nonFunctional" value="Low Latency (<100ms)">
+                            <span>Low Latency (&lt;100ms)</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="nonFunctional" value="GDPR Compliance">
+                            <span>GDPR Compliance</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="nonFunctional" value="HIPAA Compliance">
+                            <span>HIPAA Compliance</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="nonFunctional" value="Data Encryption">
+                            <span>Data Encryption</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="nonFunctional" value="Auto-scaling">
+                            <span>Auto-scaling</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="nonFunctional" value="Disaster Recovery">
+                            <span>Disaster Recovery</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="nonFunctional" value="Multi-region Support">
+                            <span>Multi-region Support</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="nonFunctional" value="Cost Optimization">
+                            <span>Cost Optimization</span>
+                        </label>
+                    </div>
+                    <textarea 
+                        id="nonFunctionalRequirements" 
+                        name="nonFunctionalRequirementsCustom" 
+                        rows="2" 
+                        placeholder="Add any other non-functional requirements (optional)"
+                        style="margin-top: 1rem;"
+                    ></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expectedUsers">
+                            <span class="label-icon">👥</span>
+                            Expected Users/Traffic
+                        </label>
+                        <input 
+                            type="text" 
+                            id="expectedUsers" 
+                            name="expectedUsers" 
+                            placeholder="e.g., 50,000 daily users"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">
+                            <span class="label-icon">💰</span>
+                            Budget Preference
+                        </label>
+                        <select id="budget" name="budget">
+                            <option value="Low">Low - Cost-optimized</option>
+                            <option value="Medium" selected>Medium - Balanced</option>
+                            <option value="High">High - Performance-focused</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span>Generate Architecture</span>
+                    <span class="btn-icon">→</span>
+                </button>
+            </form>
+        </section>
+
+        <!-- Loading Section -->
+        <section id="loadingSection" class="loading-section" style="display: none;">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <h2>Analyzing Your Requirements...</h2>
+                <p>Our AI is designing the perfect AWS architecture for your project</p>
+                <div class="loading-steps">
+                    <div class="step active">Understanding your idea</div>
+                    <div class="step">Selecting optimal services</div>
+                    <div class="step">Generating architecture flow</div>
+                    <div class="step">Preparing recommendations</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="resultsSection" class="results-section" style="display: none;">
+            <div class="results-header">
+                <h2>Your Custom AWS Architecture</h2>
+                <button id="newArchitectureBtn" class="secondary-btn">
+                    <span>Create New Architecture</span>
+                </button>
+            </div>
+            <div id="resultsContent" class="results-content"></div>
+        </section>
+    </div>
+
+    <script src="architecture.js"></script>
+</body>
+</html>

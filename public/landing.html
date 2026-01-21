@@ -15,11 +15,23 @@
         <div class="particle"></div>
         <div class="particle"></div>
         <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
     </div>
 
     <!-- Gradient Orbs -->
     <div class="gradient-orb orb-1"></div>
     <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+    <div class="gradient-orb orb-4"></div>
 
     <!-- Falling Ice Cubes with AWS Service Icons -->
     <div class="ice-cubes-container" id="iceCubesContainer"></div>
@@ -31,7 +43,7 @@
             <div class="hero-content">
                 <!-- Hero Image -->
                 <div class="hero-image-container">
-                    <img src="hero-image.png" alt="InfraJudge - Kiro AI Architect" class="hero-main-image" loading="eager" fetchpriority="high">
+                    <img src="hero-image.png" alt="InfraJudge - Kiro AI Architect" class="hero-main-image">
                 </div>
                 
                 <p class="hero-subtitle">
@@ -44,9 +56,9 @@
                 </p>
                 
                 <div class="hero-buttons">
-                    <a href="index.html" class="cta-button primary-cta">
-                        <span class="button-text">Get Started</span>
-                        <span class="button-icon">→</span>
+                    <a href="architecture.html" class="cta-button primary-cta">
+                        <span class="button-text">Know Your Architecture</span>
+                        <span class="button-icon">🏗️</span>
                     </a>
                     <a href="compare.html" class="cta-button secondary-cta">
                         <span class="button-text">Compare Services</span>
@@ -105,16 +117,28 @@
                     <h3>Serverless Stack</h3>
                     <div class="architecture-diagram">
                         <div class="diagram-layer">
-                            <div class="service-box lambda">Lambda</div>
+                            <div class="service-box lambda">
+                                <img src="https://icon.icepanel.io/AWS/svg/Compute/Lambda.svg" alt="Lambda" class="service-icon">
+                                <span>Lambda</span>
+                            </div>
                         </div>
                         <div class="diagram-arrow">↓</div>
                         <div class="diagram-layer">
-                            <div class="service-box api-gateway">API Gateway</div>
+                            <div class="service-box api-gateway">
+                                <img src="https://icon.icepanel.io/AWS/svg/App-Integration/API-Gateway.svg" alt="API Gateway" class="service-icon">
+                                <span>API Gateway</span>
+                            </div>
                         </div>
                         <div class="diagram-arrow">↓</div>
                         <div class="diagram-layer">
-                            <div class="service-box dynamodb">DynamoDB</div>
-                            <div class="service-box s3">S3</div>
+                            <div class="service-box dynamodb">
+                                <img src="https://icon.icepanel.io/AWS/svg/Database/DynamoDB.svg" alt="DynamoDB" class="service-icon">
+                                <span>DynamoDB</span>
+                            </div>
+                            <div class="service-box s3">
+                                <img src="https://icon.icepanel.io/AWS/svg/Storage/Simple-Storage-Service.svg" alt="S3" class="service-icon">
+                                <span>S3</span>
+                            </div>
                         </div>
                     </div>
                     <div class="architecture-details">
@@ -139,16 +163,28 @@
                     <h3>Enterprise Stack</h3>
                     <div class="architecture-diagram">
                         <div class="diagram-layer">
-                            <div class="service-box ec2">EC2</div>
+                            <div class="service-box ec2">
+                                <img src="https://icon.icepanel.io/AWS/svg/Compute/EC2.svg" alt="EC2" class="service-icon">
+                                <span>EC2</span>
+                            </div>
                         </div>
                         <div class="diagram-arrow">↓</div>
                         <div class="diagram-layer">
-                            <div class="service-box alb">ALB</div>
+                            <div class="service-box alb">
+                                <img src="https://icon.icepanel.io/AWS/svg/Networking-Content-Delivery/Elastic-Load-Balancing.svg" alt="ALB" class="service-icon">
+                                <span>ALB</span>
+                            </div>
                         </div>
                         <div class="diagram-arrow">↓</div>
                         <div class="diagram-layer">
-                            <div class="service-box rds">RDS</div>
-                            <div class="service-box ebs">EBS</div>
+                            <div class="service-box rds">
+                                <img src="https://icon.icepanel.io/AWS/svg/Database/RDS.svg" alt="RDS" class="service-icon">
+                                <span>RDS</span>
+                            </div>
+                            <div class="service-box ebs">
+                                <img src="https://icon.icepanel.io/AWS/svg/Storage/Elastic-Block-Store.svg" alt="EBS" class="service-icon">
+                                <span>EBS</span>
+                            </div>
                         </div>
                     </div>
                     <div class="architecture-details">
@@ -173,16 +209,28 @@
                     <h3>Microservices Stack</h3>
                     <div class="architecture-diagram">
                         <div class="diagram-layer">
-                            <div class="service-box ecs">ECS</div>
+                            <div class="service-box ecs">
+                                <img src="https://icon.icepanel.io/AWS/svg/Containers/Elastic-Container-Service.svg" alt="ECS" class="service-icon">
+                                <span>ECS</span>
+                            </div>
                         </div>
                         <div class="diagram-arrow">↓</div>
                         <div class="diagram-layer">
-                            <div class="service-box alb">ALB</div>
+                            <div class="service-box alb">
+                                <img src="https://icon.icepanel.io/AWS/svg/Networking-Content-Delivery/Elastic-Load-Balancing.svg" alt="ALB" class="service-icon">
+                                <span>ALB</span>
+                            </div>
                         </div>
                         <div class="diagram-arrow">↓</div>
                         <div class="diagram-layer">
-                            <div class="service-box dynamodb">DynamoDB</div>
-                            <div class="service-box s3">S3</div>
+                            <div class="service-box dynamodb">
+                                <img src="https://icon.icepanel.io/AWS/svg/Database/DynamoDB.svg" alt="DynamoDB" class="service-icon">
+                                <span>DynamoDB</span>
+                            </div>
+                            <div class="service-box s3">
+                                <img src="https://icon.icepanel.io/AWS/svg/Storage/Simple-Storage-Service.svg" alt="S3" class="service-icon">
+                                <span>S3</span>
+                            </div>
                         </div>
                     </div>
                     <div class="architecture-details">
@@ -207,16 +255,28 @@
                     <h3>Machine Learning Stack</h3>
                     <div class="architecture-diagram">
                         <div class="diagram-layer">
-                            <div class="service-box ec2">EC2 (GPU)</div>
+                            <div class="service-box ec2">
+                                <img src="https://icon.icepanel.io/AWS/svg/Compute/EC2.svg" alt="EC2" class="service-icon">
+                                <span>EC2 (GPU)</span>
+                            </div>
                         </div>
                         <div class="diagram-arrow">↓</div>
                         <div class="diagram-layer">
-                            <div class="service-box api-gateway">API Gateway</div>
+                            <div class="service-box api-gateway">
+                                <img src="https://icon.icepanel.io/AWS/svg/App-Integration/API-Gateway.svg" alt="API Gateway" class="service-icon">
+                                <span>API Gateway</span>
+                            </div>
                         </div>
                         <div class="diagram-arrow">↓</div>
                         <div class="diagram-layer">
-                            <div class="service-box dynamodb">DynamoDB</div>
-                            <div class="service-box s3">S3</div>
+                            <div class="service-box dynamodb">
+                                <img src="https://icon.icepanel.io/AWS/svg/Database/DynamoDB.svg" alt="DynamoDB" class="service-icon">
+                                <span>DynamoDB</span>
+                            </div>
+                            <div class="service-box s3">
+                                <img src="https://icon.icepanel.io/AWS/svg/Storage/Simple-Storage-Service.svg" alt="S3" class="service-icon">
+                                <span>S3</span>
+                            </div>
                         </div>
                     </div>
                     <div class="architecture-details">
@@ -234,15 +294,107 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Data Analytics Architecture -->
+                <div class="architecture-card">
+                    <div class="architecture-badge analytics">Analytics</div>
+                    <h3>Data Analytics Stack</h3>
+                    <div class="architecture-diagram">
+                        <div class="diagram-layer">
+                            <div class="service-box s3">
+                                <img src="https://icon.icepanel.io/AWS/svg/Storage/Simple-Storage-Service.svg" alt="S3" class="service-icon">
+                                <span>S3 Data Lake</span>
+                            </div>
+                        </div>
+                        <div class="diagram-arrow">↓</div>
+                        <div class="diagram-layer">
+                            <div class="service-box lambda">
+                                <img src="https://icon.icepanel.io/AWS/svg/Analytics/Glue.svg" alt="Glue" class="service-icon">
+                                <span>Glue ETL</span>
+                            </div>
+                        </div>
+                        <div class="diagram-arrow">↓</div>
+                        <div class="diagram-layer">
+                            <div class="service-box dynamodb">
+                                <img src="https://icon.icepanel.io/AWS/svg/Analytics/Athena.svg" alt="Athena" class="service-icon">
+                                <span>Athena</span>
+                            </div>
+                            <div class="service-box rds">
+                                <img src="https://icon.icepanel.io/AWS/svg/Analytics/Redshift.svg" alt="Redshift" class="service-icon">
+                                <span>Redshift</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="architecture-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Best For:</span>
+                            <span class="detail-value">Big Data, BI, Data Warehousing, Analytics</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Cost:</span>
+                            <span class="detail-value cost-medium">Medium</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Scaling:</span>
+                            <span class="detail-value">Petabyte-scale</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real-Time Streaming Architecture -->
+                <div class="architecture-card">
+                    <div class="architecture-badge realtime">Real-Time</div>
+                    <h3>Streaming Data Stack</h3>
+                    <div class="architecture-diagram">
+                        <div class="diagram-layer">
+                            <div class="service-box api-gateway">
+                                <img src="https://icon.icepanel.io/AWS/svg/Analytics/Kinesis.svg" alt="Kinesis" class="service-icon">
+                                <span>Kinesis</span>
+                            </div>
+                        </div>
+                        <div class="diagram-arrow">↓</div>
+                        <div class="diagram-layer">
+                            <div class="service-box lambda">
+                                <img src="https://icon.icepanel.io/AWS/svg/Compute/Lambda.svg" alt="Lambda" class="service-icon">
+                                <span>Lambda</span>
+                            </div>
+                        </div>
+                        <div class="diagram-arrow">↓</div>
+                        <div class="diagram-layer">
+                            <div class="service-box dynamodb">
+                                <img src="https://icon.icepanel.io/AWS/svg/Database/DynamoDB.svg" alt="DynamoDB" class="service-icon">
+                                <span>DynamoDB</span>
+                            </div>
+                            <div class="service-box s3">
+                                <img src="https://icon.icepanel.io/AWS/svg/Storage/Simple-Storage-Service.svg" alt="S3" class="service-icon">
+                                <span>S3</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="architecture-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Best For:</span>
+                            <span class="detail-value">IoT, Real-Time Analytics, Event Processing</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Cost:</span>
+                            <span class="detail-value cost-medium">Medium</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Scaling:</span>
+                            <span class="detail-value">Real-time</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="cta-section">
-                <h3>Ready to Find Your Perfect Architecture?</h3>
-                <p>Answer a few questions and get a personalized recommendation, or compare services directly</p>
+                <h3>Ready to Design Your Architecture?</h3>
+                <p>Get AI-powered architecture recommendations or compare services directly</p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
-                    <a href="index.html" class="cta-button primary-cta large">
-                        <span class="button-text">Get Your Recommendation</span>
-                        <span class="button-icon">→</span>
+                    <a href="architecture.html" class="cta-button primary-cta large">
+                        <span class="button-text">Know Your Architecture</span>
+                        <span class="button-icon">🏗️</span>
                     </a>
                     <a href="compare.html" class="cta-button secondary-cta large">
                         <span class="button-text">Compare Services</span>
@@ -254,27 +406,27 @@
 
         <!-- How It Works Section -->
         <section class="how-it-works-section">
-            <h2 class="section-title">How It Works</h2>
+            <h2 class="section-title">How to Compare Services</h2>
             <div class="steps-container">
                 <div class="step-card">
                     <div class="step-number">1</div>
-                    <div class="step-icon">📝</div>
-                    <h3>Tell Us About Your Project</h3>
-                    <p>Share your app type, budget, traffic expectations, and security requirements</p>
+                    <div class="step-icon">🔍</div>
+                    <h3>Browse AWS Services</h3>
+                    <p>Explore different AWS services across compute, database, storage, and API categories</p>
                 </div>
                 <div class="step-arrow">→</div>
                 <div class="step-card">
                     <div class="step-number">2</div>
-                    <div class="step-icon">🤖</div>
-                    <h3>AI Analyzes Your Needs</h3>
-                    <p>Our intelligent system compares AWS services and evaluates trade-offs</p>
+                    <div class="step-icon">⚖️</div>
+                    <h3>Compare Side-by-Side</h3>
+                    <p>View detailed comparisons of cost, scalability, performance, and use cases</p>
                 </div>
                 <div class="step-arrow">→</div>
                 <div class="step-card">
                     <div class="step-number">3</div>
-                    <div class="step-icon">🎯</div>
-                    <h3>Get Your Architecture</h3>
-                    <p>Receive a detailed recommendation with reasoning and cost analysis</p>
+                    <div class="step-icon">✅</div>
+                    <h3>Make Informed Decisions</h3>
+                    <p>Choose the best services for your architecture based on clear comparisons</p>
                 </div>
             </div>
         </section>
@@ -291,7 +443,7 @@
                 </div>
                 <p class="footer-text">Powered by AI • Built with ❤️ for Cloud Architects</p>
                 <div class="footer-links">
-                    <a href="index.html">Get Started</a>
+                    <a href="architecture.html">Know Your Architecture</a>
                     <a href="compare.html">Compare Services</a>
                     <a href="#architectures">Examples</a>
                     <a href="#features">Features</a>
