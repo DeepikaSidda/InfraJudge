@@ -2,6 +2,8 @@
 
 InfraJudge is an intelligent web application that helps developers and architects design optimal AWS architectures using AI-powered recommendations and service comparisons.
 
+**Live Demo**: https://dd9j9qxixxdz3.cloudfront.net
+
 ## Features
 
 ### 🏗️ Know Your Architecture
@@ -167,102 +169,7 @@ infrajudge/
 └── invalidate-cloudfront.bat        # Cache invalidation script
 ```
 
-## Usage
 
-### For End Users
-
-1. Visit the deployed website
-2. Choose between:
-   - **Know Your Architecture**: Generate custom AWS architecture
-   - **Compare Services**: Compare AWS services side-by-side
-
-### For Developers
-
-#### Update Frontend
-1. Make changes to files in `public/`
-2. Run `deploy-s3.bat`
-3. Run `invalidate-cloudfront.bat` to clear cache
-
-#### Update Backend
-1. Make changes to files in `src/`
-2. Run `npm run build`
-3. Run `deploy-architecture-api.bat`
-
-## Configuration
-
-### Bedrock Model Configuration
-Located in `src/architecture-generator.ts`:
-```typescript
-const BEDROCK_MODEL = 'amazon.nova-lite-v1:0';
-const REGION = 'us-east-1';
-```
-
-### Lambda Configuration
-Located in `serverless.yml`:
-```yaml
-provider:
-  runtime: nodejs18.x
-  region: us-east-1
-  memorySize: 1024
-  timeout: 60
-```
-
-### IAM Permissions
-The Lambda function requires:
-```yaml
-- bedrock:InvokeModel
-```
-
-## Troubleshooting
-
-### Issue: "Failed to generate architecture"
-- **Solution**: Check browser console for detailed errors
-- Verify API endpoint URL is correct in `public/architecture.js`
-- Ensure Bedrock model access is enabled
-- Check Lambda CloudWatch logs
-
-### Issue: Changes not appearing on website
-- **Solution**: Clear CloudFront cache using `invalidate-cloudfront.bat`
-- Hard refresh browser (Ctrl+F5)
-- Clear browser cache
-
-### Issue: Lambda timeout
-- **Solution**: Increase timeout in `serverless.yml`
-- Note: API Gateway has a 29-second timeout limit
-
-### Issue: CORS errors
-- **Solution**: CORS is already configured in Lambda handler
-- Verify `Access-Control-Allow-Origin: *` header is present
-
-## API Endpoints
-
-### Generate Architecture
-```
-POST /prod/generate-architecture
-```
-
-**Request Body:**
-```json
-{
-  "projectIdea": "A social media platform",
-  "functionalRequirements": "User Authentication, File Upload",
-  "nonFunctionalRequirements": "High Scalability, 99.9% Uptime",
-  "expectedUsers": "50000",
-  "budget": "Medium"
-}
-```
-
-**Response:**
-```json
-{
-  "overview": "Architecture overview...",
-  "workflow": "Step-by-step workflow...",
-  "services": "List of AWS services...",
-  "justification": "Service justifications...",
-  "comparison": "Comparison tables...",
-  "notes": "Additional notes..."
-}
-```
 
 ## Cost Considerations
 
@@ -275,25 +182,7 @@ POST /prod/generate-architecture
 
 **Estimated monthly cost for moderate usage: $1-5** (mostly Bedrock API calls)
 
-## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License.
-
-## Support
-
-For issues or questions:
-- Check the Troubleshooting section
-- Review AWS Bedrock documentation
-- Check CloudWatch logs for Lambda errors
-- Open an issue on GitHub
 
 ## Acknowledgments
 
@@ -303,6 +192,5 @@ For issues or questions:
 
 ---
 
-**Live Demo**: https://dd9j9qxixxdz3.cloudfront.net
 
-**API Endpoint**: https://9yas6oz7zh.execute-api.us-east-1.amazonaws.com/prod/generate-architecture
+
