@@ -6,20 +6,20 @@ InfraJudge is an intelligent web application that helps developers and architect
 
 ## Features
 
-### 🏗️ Know Your Architecture
+###  Know Your Architecture
 - AI-powered architecture generation using AWS Bedrock Nova
 - Interactive form with functional and non-functional requirements
 - Detailed architecture recommendations with workflow diagrams
 - Comprehensive service comparisons with ratings (Cost, Scalability, Performance, Ease of Use, Flexibility)
 - Budget-aware recommendations (Low, Medium, High)
 
-### ⚖️ Service Comparison
+###  Service Comparison
 - Side-by-side comparison of AWS services
 - AI-generated ratings and recommendations
 - Detailed trade-off analysis
 - Category-based service browsing (Compute, Database, Storage, API)
 
-### 🎨 Modern UI/UX
+###  Modern UI/UX
 - Animated background with floating AWS service icons
 - Responsive design
 - Clean, intuitive interface
